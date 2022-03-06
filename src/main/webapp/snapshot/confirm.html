@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>Welcome shopping!</title>
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header>
+	<nav id="menu">
+		<ol>
+			<li><a href="./index.html">ようこそ</a></li>
+			<li><a href="./list.html">本</a></li>
+			<li><a href="./list.html">DVD</a></li>
+			<li><a href="./list.html">ゲーム</a></li>
+			<li><a href="./cart.html">カートを見る</a></li>
+		</ol>
+	</nav>
+</header>
+<main>
+	<article id="confirm">
+		<form class="container">
+			<section id="cart">
+				<h2>ご注文商品</h2>
+				<table>
+					<tr>
+						<th>商品番号</th>
+						<th>商品名</th>
+						<th>単価（税込）</th>
+						<th>個数</th>
+						<th>小計</th>
+						<th>削除</th>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>Javaの基本</td>
+						<td>2500円</td>
+						<td>2</td>
+						<td>5000円</td>
+						<td>
+							<input type="submit" value="削除" />
+						</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>MLB Fun</td>
+						<td>980円</td>
+						<td>4</td>
+						<td>3820円</td>
+						<td>
+							<input type="submit" value="削除" />
+						</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>Space Wars 3</td>
+						<td>1800円</td>
+						<td>1</td>
+						<td>6000円</td>
+						<td>
+							<input type="submit" value="削除" />
+						</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>なつかしのアニメシリーズ</td>
+						<td>2000円</td>
+						<td>3</td>
+						<td>6000円</td>
+						<td>
+							<input type="submit" value="削除" />
+						</td>
+					</tr>
+					<tr>
+						<td colspan="6" class="right-align">総計：16710円</td>
+					</tr>
+				</table>
+			</section>
+			<section id="customer">
+				<h2>お客様情報</h2>
+				<table>
+					<tr>
+						<th>お名前</th>
+						<td>鈴木一郎</td>
+					</tr>
+					<tr>
+						<th>住所</th>
+						<td>東京都渋谷区</td>
+					</tr>
+					<tr>
+						<th>電話番号</th>
+						<td>03-3333-3333</td>
+					</tr>
+					<tr>
+						<th>e-mail</th>
+						<td>ichio@abc.com</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<button formaction="./complete.html" formmethod="post" name="action" value="execute">この内容で注文</button>
+						</td>
+					</tr>
+				</table>
+			</section>
+		</form>
+	</article>
+</main>
+<footer>
+	<div class="copyright">&copy; 2022 Recurrent Technology.</div>
+</footer>
+</body>
+</html>

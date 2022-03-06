@@ -28,15 +28,15 @@ public class ItemServlet extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// リクエストパラメータ（actionキー）の取得
-		String action = request.getParameter("action");
-		if (action == null || action.isEmpty() || action.equals("top")) {
-			// actionキーが送信されていないかまたは初期画面表示（top）の場合
-			this.gotoPage(request, response, "/top.jsp");
-		} else if (action.equals("list")) {
-			// リクエストパラメータを取得
-			int code = Integer.parseInt(request.getParameter("code"));
-			try {
+		try {
+			// リクエストパラメータ（actionキー）の取得
+			String action = request.getParameter("action");
+			if (action == null || action.isEmpty() || action.equals("top")) {
+				// actionキーが送信されていないかまたは初期画面表示（top）の場合
+				this.gotoPage(request, response, "/top.jsp");
+			} else if (action.equals("list")) {
+				// リクエストパラメータを取得
+				int code = Integer.parseInt(request.getParameter("code"));
 				// ItemDAoをインスタンス化
 				ItemDAO dao = new ItemDAO();
 				// 商品リストを取得
@@ -45,10 +45,18 @@ public class ItemServlet extends HttpServlet {
 				request.setAttribute("items", list);
 				// 商品一覧画面に遷移
 				this.gotoPage(request, response, "/list.jsp");
-			} catch (DAOException e) {
-				e.printStackTrace();
+			} else {
+				// リクエストスコープにエラーメッセージを登録
+				request.setAttribute("message", "正しく操作してください。");
+				// 内部エラー画面に遷移
 				this.gotoPage(request, response, "/errInternal.jsp");
 			}
+		} catch (DAOException e) {
+			e.printStackTrace();
+			// リクエストスコープにエラーメッセージを登録
+			request.setAttribute("message", "内部エラーが発生しました。");
+			// 内部エラー画面に遷移
+			this.gotoPage(request, response, "/errInternal.jsp");
 		}
 	}
 

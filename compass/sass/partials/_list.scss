@@ -1,0 +1,32 @@
+@charset "utf-8";
+@import "./common";
+
+@mixin ItemList {
+	dl {
+		overflow: hidden;
+		width: setSizeByScale(24);
+		margin: setSizeByScale(0.50) auto;
+		padding: 0;
+		dt, dd {
+			float: left;
+			margin: 2px;
+			padding: setSizeByScale(0.25) setSizeByScale(0.50);
+		}
+		dt:not(:last-child) {
+			color: lightgray;
+			background-color: darkslategray;
+			width: setSizeByScale(6.0);
+		}
+		dd {
+			background-color: whitesmoke;
+			width:setSizeByScale(15);
+		}
+	}
+}
+
+#list {
+	.container {
+		@include ContainerStyle(28);
+		@include ItemList;
+	}
+}

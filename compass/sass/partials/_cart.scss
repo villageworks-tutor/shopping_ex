@@ -1,0 +1,9 @@
+@charset "utf-8";
+@import "./common";
+
+#cart {
+	.container {
+		@include ContainerStyle(37.5);
+		@include CartTable;
+	}
+}

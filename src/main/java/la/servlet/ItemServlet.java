@@ -35,6 +35,7 @@ public class ItemServlet extends HttpServlet {
 				// actionキーが送信されていないかまたは初期画面表示（top）の場合
 				this.gotoPage(request, response, "/top.jsp");
 			} else if (action.equals("list")) {
+				// 商品カテゴリーをクリックされた場合
 				// リクエストパラメータを取得
 				int code = Integer.parseInt(request.getParameter("code"));
 				// ItemDAoをインスタンス化
@@ -46,6 +47,7 @@ public class ItemServlet extends HttpServlet {
 				// 商品一覧画面に遷移
 				this.gotoPage(request, response, "/list.jsp");
 			} else {
+				// actionキーが未定義の文字列の場合：不正なアクセスと判断する
 				// リクエストスコープにエラーメッセージを登録
 				request.setAttribute("message", "正しく操作してください。");
 				// 内部エラー画面に遷移

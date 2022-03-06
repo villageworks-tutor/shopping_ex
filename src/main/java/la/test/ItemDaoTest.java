@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import la.bean.CategoryBean;
+import la.bean.ItemBean;
 import la.dao.BaseDAO;
 import la.dao.DAOException;
 import la.dao.ItemDAO;
@@ -33,6 +34,49 @@ class ItemDaoTest {
 	void tearDown() throws Exception {
 	}
 
+	@Nested
+	@DisplayName("ItemDAO#findByCategoryメソッドのテストクラス")
+	class findByCategory {
+		@Test
+		@DisplayName("登録されていない商品コード「-1」の商品はない")
+		void test_02() throws Exception {
+			// setup
+			int target = -1;
+			List<ItemBean> expected = new ArrayList<>();
+			// execute
+			List<ItemBean> actual = sut.findByCategory(target);
+			// verify
+			assertThat(actual, is(expected));
+		}
+		@Test
+		@DisplayName("登録された商品カテゴリーコード「3」の商品は「パズルゲーム」「Invader Fighter」「Play the BascketBall」である")
+		void test_01() throws Exception {
+			// setup
+			int target = 3;
+			List<ItemBean> expectedList = new ArrayList<>();
+			expectedList.add(new ItemBean(7, "パズルゲーム", 780));
+			expectedList.add(new ItemBean(8, "Invader Fighter",	3400));
+			expectedList.add(new ItemBean(9, "Play the BascketBall", 2200));
+			// execute
+			List<ItemBean> actualList = sut.findByCategory(target);
+			// verify
+			if (actualList.size() > 0) {
+				ItemBean expected = null;
+				ItemBean actual = null;
+				for (int i = 0; i < actualList.size(); ++i) {
+					actual = actualList.get(i);
+					expected = expectedList.get(i);
+					assertThat(actual.getCode(), is(expected.getCode()));
+					assertThat(actual.getName(), is(expected.getName()));
+					assertThat(actual.getPrice(), is(expected.getPrice()));
+				}
+			} else {
+				fail("未実装です");
+			}
+		}
+	}
+	
+	
 	@Nested
 	@DisplayName("ItemDAO#findAllCategoryメソッドのテストクラス")
 	class findAllCategory {

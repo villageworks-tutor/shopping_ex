@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import la.bean.CategoryBean;
+import la.bean.ItemBean;
 import la.dao.DAOException;
 import la.dao.ItemDAO;
 
@@ -32,6 +33,22 @@ public class ItemServlet extends HttpServlet {
 		if (action == null || action.isEmpty() || action.equals("top")) {
 			// actionキーが送信されていないかまたは初期画面表示（top）の場合
 			this.gotoPage(request, response, "/top.jsp");
+		} else if (action.equals("list")) {
+			// リクエストパラメータを取得
+			int code = Integer.parseInt(request.getParameter("code"));
+			try {
+				// ItemDAoをインスタンス化
+				ItemDAO dao = new ItemDAO();
+				// 商品リストを取得
+				List<ItemBean> list = dao.findByCategory(code);
+				// リクエストスコープに商品リストを登録
+				request.setAttribute("items", list);
+				// 商品一覧画面に遷移
+				this.gotoPage(request, response, "/list.jsp");
+			} catch (DAOException e) {
+				e.printStackTrace();
+				this.gotoPage(request, response, "/errInternal.jsp");
+			}
 		}
 	}
 

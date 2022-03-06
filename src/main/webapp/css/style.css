@@ -1,0 +1,212 @@
+html {
+  font-size: 62.5%;
+}
+html body {
+  color: dimgray;
+  line-height: 1.4;
+  font-size: 1.6rem;
+}
+
+header {
+  padding: 1.2rem 0.8rem;
+}
+
+footer {
+  margin-top: 2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid dimgray;
+}
+footer .copyright {
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+}
+
+em {
+  display: block;
+  padding: 1.2rem 2.8rem;
+  font-size: 1.84rem;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.message {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.container {
+  background-color: #E5E3C9;
+  width: 60rem;
+  padding: 1.2rem;
+}
+
+.right-align {
+  text-align: right;
+}
+
+#top .container {
+  background-color: #E5E3C9;
+  width: 60rem;
+  padding: 1.2rem;
+}
+
+#menu ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#menu ol li {
+  display: inline;
+  margin: 0;
+  padding: 0 0.5rem;
+  border-right: 1px solid dimgray;
+}
+#menu ol li:first-child {
+  padding-left: 0;
+}
+#menu ol li:last-child {
+  border-width: 0;
+}
+#menu ol li a:link {
+  color: darkslategrey;
+}
+#menu ol li a:hover {
+  color: darkslategray;
+  font-weight: bold;
+}
+
+#list .container {
+  background-color: #E5E3C9;
+  width: 44.8rem;
+  padding: 1.2rem;
+}
+#list .container dl {
+  overflow: hidden;
+  width: 38.4rem;
+  margin: 0.8rem auto;
+  padding: 0;
+}
+#list .container dl dt, #list .container dl dd {
+  float: left;
+  margin: 2px;
+  padding: 0.4rem 0.8rem;
+}
+#list .container dl dt:not(:last-child) {
+  color: lightgray;
+  background-color: darkslategray;
+  width: 9.6rem;
+}
+#list .container dl dd {
+  background-color: whitesmoke;
+  width: 24rem;
+}
+
+#cart .container {
+  background-color: #E5E3C9;
+  width: 60rem;
+  padding: 1.2rem;
+}
+#cart .container table tr:first-child {
+  color: #E5E3C9;
+  background-color: #789395;
+}
+#cart .container table tr:not(:first-child):nth-child(even):not(:last-child) {
+  background-color: white;
+}
+#cart .container table tr:not(:first-child):nth-child(odd):not(:last-child) {
+  background-color: whitesmoke;
+}
+#cart .container table tr th, #cart .container table tr td {
+  padding: 0.4rem 0.8rem;
+}
+#cart .container table tr td {
+  text-align: right;
+}
+#cart .container table tr td:nth-child(2), #cart .container table tr td:last-child {
+  text-align: left;
+}
+#cart .container table tr td[class="right-align"] {
+  text-align: right;
+}
+
+#entry .container {
+  background-color: #E5E3C9;
+  width: 60rem;
+  padding: 1.2rem;
+}
+#entry .container #cart table tr:first-child {
+  color: #E5E3C9;
+  background-color: #789395;
+}
+#entry .container #cart table tr:not(:first-child):nth-child(even):not(:last-child) {
+  background-color: white;
+}
+#entry .container #cart table tr:not(:first-child):nth-child(odd):not(:last-child) {
+  background-color: whitesmoke;
+}
+#entry .container #cart table tr th, #entry .container #cart table tr td {
+  padding: 0.4rem 0.8rem;
+}
+#entry .container #cart table tr td {
+  text-align: right;
+}
+#entry .container #cart table tr td:nth-child(2), #entry .container #cart table tr td:last-child {
+  text-align: left;
+}
+#entry .container #cart table tr td[class="right-align"] {
+  text-align: right;
+}
+#entry .container #customer table tr th, #entry .container #customer table tr td {
+  padding: 0.4rem 0.8rem;
+}
+#entry .container #customer table tr th {
+  color: #E5E3C9;
+  background-color: #789395;
+}
+#entry .container #customer table tr:not(:last-child) td {
+  background-color: whitesmoke;
+}
+#entry .container #customer table tr:not(:last-child) td input[type="text"] {
+  width: 24rem;
+}
+
+#confirm .container {
+  background-color: #E5E3C9;
+  width: 60rem;
+  padding: 1.2rem;
+}
+#confirm .container #cart table tr:first-child {
+  color: #E5E3C9;
+  background-color: #789395;
+}
+#confirm .container #cart table tr:not(:first-child):nth-child(even):not(:last-child) {
+  background-color: white;
+}
+#confirm .container #cart table tr:not(:first-child):nth-child(odd):not(:last-child) {
+  background-color: whitesmoke;
+}
+#confirm .container #cart table tr th, #confirm .container #cart table tr td {
+  padding: 0.4rem 0.8rem;
+}
+#confirm .container #cart table tr td {
+  text-align: right;
+}
+#confirm .container #cart table tr td:nth-child(2), #confirm .container #cart table tr td:last-child {
+  text-align: left;
+}
+#confirm .container #cart table tr td[class="right-align"] {
+  text-align: right;
+}
+#confirm .container #customer table tr th, #confirm .container #customer table tr td {
+  padding: 0.4rem 0.8rem;
+}
+#confirm .container #customer table tr th {
+  color: #E5E3C9;
+  background-color: #789395;
+}
+#confirm .container #customer table tr:not(:last-child) td {
+  background-color: whitesmoke;
+}
+#confirm .container #customer table tr:not(:last-child) td input[type="text"] {
+  width: 24rem;
+}

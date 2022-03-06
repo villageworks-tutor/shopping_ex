@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>商品一覧</title>
+	<link rel="stylesheet" href="../css/style.css">
+	<script>
+	function createSelectBox(upper, selected = -1) {
+		document.write("<select name=\"quantity\">");
+		for (i = 0; i < upper; i++) {
+			if (i + 1 == selected) {
+				document.write("<option value\"" + (i + 1) + "\" selected>" + (i + 1) + "</option>");
+			} else {
+				document.write("<option value\"" + (i + 1) + "\">" + (i + 1) + "</option>");
+			}
+		}
+		document.write("</select>");
+	}
+	</script>
+</head>
+<body>
+<header>
+	<nav id="menu">
+		<ol>
+			<li><a href="./index.html">ようこそ</a></li>
+			<li><a href="./list.html">本</a></li>
+			<li><a href="./list.html">DVD</a></li>
+			<li><a href="./list.html">ゲーム</a></li>
+			<li><a href="./cart.html">カートを見る</a></li>
+		</ol>
+	</nav>
+</header>
+<main>
+	<article id="list">
+		<form class="container">
+			<h1>商品一覧</h1>
+		<dl>
+			<dt>商品番号</dt>
+			<dd>1</dd>
+			<dt>商品名</dt><dd>なつかしのアニメシリーズ</dd>
+			<dt>価格（税込）</dt><dd>2500円</dd>
+			<dt>個数</dt>
+			<dd>
+				<script>
+					createSelectBox(5, 1);
+				</script>
+			</dd>
+			<dt>
+				<button formaction="./cart.html" formmethod="get" name="code" value="1">カートに追加</button>
+			</dt>
+		</dl>
+		<dl>
+			<dt>商品番号</dt>
+			<dd>2</dd>
+			<dt>商品名</dt><dd>なつかしのアニメシリーズ</dd>
+			<dt>価格（税込）</dt><dd>2500円</dd>
+			<dt>個数</dt>
+			<dd>
+				<script>
+					createSelectBox(5);
+				</script>
+			</dd>
+			<dt>
+				<button formaction="./cart.html" formmethod="get" name="code" value="2">カートに追加</button>
+			</dt>
+		</dl>
+		</form>
+	</article>
+</main>
+<footer>
+	<div class="copyright">&copy; 2022 Recurrent Technology.</div>
+</footer>
+</body>
+</html>

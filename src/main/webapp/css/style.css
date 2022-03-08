@@ -96,7 +96,7 @@ em {
   background-color: darkslategray;
   width: 9.6rem;
 }
-#list .container dl dd {
+#list .container dl dd:not(:last-child) {
   background-color: whitesmoke;
   width: 24rem;
 }

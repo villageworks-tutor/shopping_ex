@@ -3,7 +3,7 @@
 <header>
 	<nav id="menu">
 		<ol>
-			<li><a href="./index.html">ようこそ</a></li>
+			<li><a href="ItemServlet">ようこそ</a></li>
 			<c:forEach items="${applicationScope.categories}" var="category">
 				<li><a href="./ItemServlet?action=list&code=${pageScope.category.code}">${pageScope.category.name}</a></li>
 			</c:forEach>

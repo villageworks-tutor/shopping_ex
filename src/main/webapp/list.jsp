@@ -41,9 +41,12 @@
 						createSelectBox(5, 1);
 					</script>
 				</dd>
-				<dt>
-					<button formaction="./cart.html" formmethod="get" name="code" value="${pageScope.item.code}">カートに追加</button>
-				</dt>
+				<dd>
+					<button formaction="CartServlet" name="action" value="add">
+						カートに追加
+						<input type="hidden" name="code" value="${pageScope.item.code}" />
+					</button>
+				</dd>
 			</dl>
 			</c:forEach>
 		</form>

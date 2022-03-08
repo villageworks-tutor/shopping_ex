@@ -17,7 +17,7 @@
 			background-color: darkslategray;
 			width: setSizeByScale(6.0);
 		}
-		dd {
+		dd:not(:last-child) {
 			background-color: whitesmoke;
 			width:setSizeByScale(15);
 		}

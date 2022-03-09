@@ -32,6 +32,7 @@ public class CartServlet extends HttpServlet {
 		String action = request.getParameter("action");
 		if (action == null || action.isEmpty() || action.equals("show")) {
 			// actionキーが送信されていないかまたはカートの中身を見る（show）の場合
+			this.gotoPage(request, response, "cart.jsp");
 		} else if (action.equals("add")) {
 			// 商品を追加する場合
 			// リクエストパラメータを取得

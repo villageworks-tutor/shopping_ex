@@ -33,6 +33,38 @@ class ItemDaoTest {
 	@AfterEach
 	void tearDown() throws Exception {
 	}
+	
+	@Nested
+	@DisplayName("ItemDAO#findByPrimaryKeyメソッドのテストクラス")
+	class fineByPrimaryKey {
+		@Test
+		@DisplayName("登録されていない商品番号「-1」の商品はnullである")
+		void test_02() throws Exception {
+			// setup
+			int target = -1;
+			// execute
+			ItemBean actual = sut.findByPrimaryKey(target);
+			// verify
+			assertThat(actual, is(nullValue()));
+		}
+		@Test
+		@DisplayName("登録されている商品番号「４」の商品は「なつかしのアニメシリーズ」である")
+		void test_01() throws Exception {
+			// setup
+			int target = 4;
+			ItemBean expected = new ItemBean(target, "なつかしのアニメシリーズ", 2000);
+			// execute
+			ItemBean actual = sut.findByPrimaryKey(target);
+			// verify
+			if (actual != null) {
+				assertThat("商品番号が違います", actual.getCode(), is(expected.getCode()));
+				assertThat("商品名が違います", actual.getName(), is(expected.getName()));
+				assertThat("価格が違います", actual.getPrice(), is(expected.getPrice()));
+			} else {
+				fail("未実装です");
+			}
+		}
+	}
 
 	@Nested
 	@DisplayName("ItemDAO#findByCategoryメソッドのテストクラス")
@@ -66,9 +98,9 @@ class ItemDaoTest {
 				for (int i = 0; i < actualList.size(); ++i) {
 					actual = actualList.get(i);
 					expected = expectedList.get(i);
-					assertThat(actual.getCode(), is(expected.getCode()));
-					assertThat(actual.getName(), is(expected.getName()));
-					assertThat(actual.getPrice(), is(expected.getPrice()));
+					assertThat("商品番号が違います", actual.getCode(), is(expected.getCode()));
+					assertThat("商品名が違います", actual.getName(), is(expected.getName()));
+					assertThat("価格が違います", actual.getPrice(), is(expected.getPrice()));
 				}
 			} else {
 				fail("未実装です");
@@ -93,8 +125,8 @@ class ItemDaoTest {
 			// verify
 			if (actualList.size() > 0) {
 				for (int i = 0; i < actualList.size(); ++i) {
-					assertThat(actualList.get(i).getCode(), is(expectedList.get(i).getCode()));
-					assertThat(actualList.get(i).getName(), is(expectedList.get(i).getName()));
+					assertThat("商品番号が違います", actualList.get(i).getCode(), is(expectedList.get(i).getCode()));
+					assertThat("商品名が違います", actualList.get(i).getName(), is(expectedList.get(i).getName()));
 				}
 			} else {
 				fail("未実装です");

@@ -28,7 +28,46 @@ class CartBeanTest {
 	@AfterEach
 	void tearDown() throws Exception {
 	}
-
+	
+	@Nested
+	@DisplayName("CartBean#deleteItemメソッドのテストクラス")
+	class deleteItem {
+		
+		@BeforeEach
+		void setUp() {
+			// 【テストの前提】カートに2個の商品「Javaの基礎」、4個の商品「MLB Fun」と3個の「なつかしのアニメシリーズ」が入っている。
+			sut.addItem(new ItemBean(1, "Javaの基礎", 2500), 2);
+			sut.addItem(new ItemBean(2, "MLB Fun", 980), 4);
+			sut.addItem(new ItemBean(4, "なつかしのアニメシリーズ", 2000), 3);
+		}
+		
+		@Test
+		@DisplayName("カートに入っていない商品番号「-1」の商品を削除すると合計金額は14920円である")
+		void test_02() {
+			// setup
+			int target = -1;
+			int expected = 14920;
+			// execute
+			sut.deleteItem(target);
+			int actual = sut.getTotal();
+			// verify
+			assertThat(actual, is(expected));
+		}
+		
+		@Test
+		@DisplayName("商品「Javaの基礎」をカートから削除すると合計金額は11000円である")
+		void test_01() {
+			// setup
+			int target = 2;
+			int expected = 11000;
+			// execute
+			sut.deleteItem(target);
+			int actual = sut.getTotal();
+			// verify
+			assertThat(actual, is(expected));
+		}
+	}
+	
 	@Nested
 	@DisplayName("CartBean#getTotalメソッドのテストクラス")
 	class addItem {

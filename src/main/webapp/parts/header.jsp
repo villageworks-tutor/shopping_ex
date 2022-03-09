@@ -7,7 +7,7 @@
 			<c:forEach items="${applicationScope.categories}" var="category">
 				<li><a href="./ItemServlet?action=list&code=${pageScope.category.code}">${pageScope.category.name}</a></li>
 			</c:forEach>
-			<li><a href="./cart.html">カートを見る</a></li>
+			<li><a href="CartServlet?action=show">カートを見る</a></li>
 		</ol>
 	</nav>
 </header>

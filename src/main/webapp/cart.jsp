@@ -16,7 +16,7 @@
 
 <main>
 	<article id="cart">
-		<form class="container">
+		<div class="container">
 			<h2>現在のカートの中身</h2>
 			<table>
 				<tr>
@@ -47,11 +47,13 @@
 				</tr>
 				<tr>
 					<td colspan="6" class="button">
-						<button formaction="./customerInfo.html" formmethod="post" name="action" value="entry">注文する</button>
+						<form name="order">
+							<button formaction="OrderServlet" formmethod="post" name="action" value="entry">注文する</button>
+						</form>
 					</td>
 				</tr>
 			</table>
-		</form>
+		</div>
 	</article>
 </main>
 

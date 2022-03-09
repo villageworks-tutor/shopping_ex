@@ -68,6 +68,34 @@ public class CartServlet extends HttpServlet {
 				// 内部エラー画面に遷移
 				this.gotoPage(request, response, "/errInternal.jsp");
 			}
+		} else if (action.equals("delete")) {
+			// 商品を削除する場合
+			// リクエストパラメータを取得
+			int code = Integer.parseInt(request.getParameter("code"));
+			// セッションからカートを取得
+			HttpSession session = request.getSession(false);
+			if (session == null) {
+				// セッションオブジェクトがない場合：セッションが切れている
+				// リクエストスコープにエラーメッセージを登録
+				request.setAttribute("message", "セッションが切れています。もう一度トップページから操作してください。");
+				// 内部エラー画面に遷移
+				this.gotoPage(request, response, "/errInternal.jsp");
+				return;
+			}
+			// カートを取得
+			CartBean cart = (CartBean) session.getAttribute("cart");
+			if (cart == null) {
+				// カートを取得できない場合：不正アクセスとみなす
+				// リクエストスコープにエラーメッセージを登録
+				request.setAttribute("message", "正しく操作してください。");
+				// 内部エラー画面に遷移
+				this.gotoPage(request, response, "/errInternal.jsp");
+				return;
+			}
+			//カートから削除
+			cart.deleteItem(code);
+			// カート内容表示画面に遷移
+			this.gotoPage(request, response, "cart.jsp");
 		} else {
 			// actionキーが未定義の文字列の場合：不正なアクセスと判断する
 			// リクエストスコープにエラーメッセージを登録

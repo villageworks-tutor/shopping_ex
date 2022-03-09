@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -34,7 +35,10 @@
 					<td>${pageScope.item.quantity}</td>
 					<td>${pageScope.item.price * pageScope.item.quantity}円</td>
 					<td>
-						<button formaction="./cart.html" formmethod="get" name="code" value="1">削除</button>
+						<form action="CartServlet" method="post">
+							<button type="submit" name="action" value="delete">削除</button>
+							<input type="hidden" name="code" value="${pageScope.item.code}" />
+						</form>
 					</td>
 				</tr>
 				</c:forEach>

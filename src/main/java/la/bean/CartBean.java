@@ -77,6 +77,22 @@ public class CartBean {
 		// totalフィールドを仮の合計金額で上書き
 		this.total = total;
 	}
+
+	/**
+	 * 指定した商品番号の商品を削除する。
+	 * @param itemCode 商品番号
+	 */
+	public void deleteItem(int itemCode) {
+		// 指定された商品番号の商品を削除
+		for (ItemBean item : this.items) {
+			if (item.getCode() == itemCode) {
+				this.items.remove(item);
+				break;
+			}
+		}
+		// totalフィールドを仮の合計金額で上書き
+		this.recalcTotal();
+	}
 	
 	
 	

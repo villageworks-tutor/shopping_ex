@@ -89,5 +89,36 @@ public class ItemDAO extends BaseDAO {
 			throw new DAOException("レコードの取得に失敗しました。");
 		}
 	}
+
+	/**
+	 * 指定された商品番号に合致した商品を取得する。
+	 * @param code 商品番号
+	 * @return 商品番号に合致したレコードがある場合には商品のインスタンス、それ以外はnull
+	 * @throws DAOException
+	 */
+	public ItemBean findByPrimaryKey(int code) throws DAOException {
+		// 実行するSQLを設定
+		String sql = "SELECT code, name, price FROM item WHERE code = ?";
+		try (PreparedStatement pstmt = this.conn.prepareStatement(sql);) {
+			// プレースホルダにパラメータをバインド
+			pstmt.setInt(1, code);
+			try (ResultSet rs = pstmt.executeQuery();) {
+				// 戻り値の商品のインスタンスを初期化
+				ItemBean bean = null;
+				// 結果セットから商品のインスタンスを取得
+				if (rs.next()) {
+					bean = new ItemBean();
+					bean.setCode(rs.getInt("code"));
+					bean.setName(rs.getString("name"));
+					bean.setPrice(rs.getInt("price"));
+				}
+				// 商品のインスタンスを返却
+				return bean;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new DAOException("レコードの取得に失敗しました。");
+		}
+	}
 	
 }
